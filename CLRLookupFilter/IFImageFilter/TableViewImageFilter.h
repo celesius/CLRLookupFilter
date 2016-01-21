@@ -7,7 +7,8 @@
 //
 
 //#import "GPUImageStillCamera.h"
-#import <GPUImage/GPUImageStillCamera.h>
+//#import <GPUImage/GPUImageStillCamera.h>
+#import <GPUImage.h>
 #import "IFImageFilter.h"
 #import "InstaFilters.h"
 

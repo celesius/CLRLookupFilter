@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 clover. All rights reserved.
 //
 
-//#import <GPUImage.h>
-#import <GPUImage/GPUImageFramework.h>
+#import <GPUImage.h>
+//#import <GPUImage/GPUImageFramework.h>
 
 
 @interface IFImageFilter : GPUImageThreeInputFilter

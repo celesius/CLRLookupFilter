@@ -14,7 +14,7 @@
 {
     UIImagePickerController *ipc;
     UIPopoverController *popover;
-    CLRGPUImageVC *_clrGPUImageVC;
+    //CLRGPUImageVC *_clrGPUImageVC;
 }
 
 @property (nonatomic, strong) UIImage *getImage;
@@ -31,6 +31,7 @@
     [openGalleryButton setTitle:@"来个照片" forState:UIControlStateNormal];
     [openGalleryButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [openGalleryButton addTarget:self action:@selector(openGalleryButtonFoo:) forControlEvents:UIControlEventTouchUpInside];
+
     
     [self.view addSubview:openGalleryButton];
     
@@ -66,14 +67,15 @@
 {
     ViewController * __weak weakself = self;
     if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-        [picker dismissViewControllerAnimated:YES completion:^{[weakself vcPush];}];
-        //[picker dismissViewControllerAnimated:YES completion:nil];
+        //[picker dismissViewControllerAnimated:YES completion:^{[weakself vcPush];}];
+        [picker dismissViewControllerAnimated:YES completion:nil];
     }
    
     //UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
     //NSLog(@"%ld",(long)img.imageOrientation);
     
     _getImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self vcPush];
     //_clrGPUImageVC = [[CLRGPUImageVC alloc]init];
     //_clrGPUImageVC.getImage = _getImage;
     //NSLog(@"getImage");
@@ -87,10 +89,12 @@
 - (void)vcPush
 {
     NSLog(@"vcPush");
-    ipc = nil;
-    _clrGPUImageVC = [[CLRGPUImageVC alloc]init];
+    //ipc = nil;
+    
+    CLRGPUImageVC *_clrGPUImageVC = [[CLRGPUImageVC alloc]init];
     _clrGPUImageVC.getImage = _getImage;
     [self.navigationController pushViewController:_clrGPUImageVC animated:YES];
+    
     //[self.navigationController pushViewController:_clrGPUImageVC animated:YES];
 }
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface CLRGPUImageVC : UIViewController
 
 @property (nonatomic, weak) UIImage *getImage;

@@ -12,12 +12,12 @@
 @interface CLRGPUImageLookUpFilter ()
 {
     UIImageOrientation _imgOrientation;
-    
 }
 
 @property (nonatomic, strong) GPUImagePicture *stillImageSource;
 @property (nonatomic, strong) GPUImageLookupFilter *lookFilter;
 @property (nonatomic, strong) GPUImagePicture *lookupImageSource;
+@property (nonatomic, weak)   UIImage *luImg;
 
 @end
 
@@ -35,20 +35,32 @@
 - (id)initWithLookUpImg:(UIImage *)lookupImg;
 {
     if(self = [super init]) {
-        _lookupImageSource = [[GPUImagePicture alloc]initWithImage:lookupImg];//[[GPUImagePicture alloc] initWithImage: [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:name ofType:@".png" ]]];  //[UIImage imageNamed:@"lookupYKS.png"]];
+        _luImg = lookupImg;
+        _lookupImageSource = [[GPUImagePicture alloc]initWithImage:_luImg];//[[GPUImagePicture alloc] initWithImage: [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:name ofType:@".png" ]]];  //[UIImage imageNamed:@"lookupYKS.png"]];
         _lookFilter = [[GPUImageLookupFilter alloc]init];
     }
     return self;
 }
 
-
 - (void) setFilterImg:(UIImage *)filterImg
 {
     _filterImg = filterImg;
     _imgOrientation = _filterImg.imageOrientation;
-    _stillImageSource = [[GPUImagePicture alloc]initWithImage:_filterImg];
- //   _stillImageSource = [[GPUImagePicture alloc]initWithCGImage:_filterImg.CGImage ];
+    if(self.stillImageSource){
+        self.stillImageSource = nil;
+        _stillImageSource = [[GPUImagePicture alloc]initWithImage:_filterImg];
+    }
+    else
+        _stillImageSource = [[GPUImagePicture alloc]initWithImage:_filterImg];
+        
     [_stillImageSource addTarget:_lookFilter];
+    [_lookupImageSource addTarget:_lookFilter];
+}
+
+- (void) setGetGPUImagePicture:(GPUImagePicture *)getGPUImagePicture
+{
+    _getGPUImagePicture = getGPUImagePicture;
+    [_getGPUImagePicture addTarget:_lookFilter];
     [_lookupImageSource addTarget:_lookFilter];
 }
 
@@ -56,10 +68,12 @@
 {
     _lookFilter.intensity = value;
     [_lookFilter useNextFrameForImageCapture];
-    [_stillImageSource processImage];
+    //[_stillImageSource processImage];
+    [_getGPUImagePicture processImage];
     [_lookupImageSource processImage];
 //     UIImage *image =   [_lookFilter imageFromCurrentFramebuffer];
      UIImage *image = [_lookFilter imageFromCurrentFramebufferWithOrientation:_imgOrientation];
+    _stillImageSource = nil;
     NSLog(@"%ld",(long)image.imageOrientation);
     return image;
 }
@@ -67,6 +81,6 @@
 - (void)dealloc
 {
     //[super dealloc];
-    NSLog(@"dealloc");
+    NSLog(@"dealloc CLRGPUImageLookUpFilter ");
 }
 @end

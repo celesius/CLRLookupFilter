@@ -171,11 +171,12 @@
     }
     return self;
 }
-
+/*
 -(void) SetFilter:(IFFilterType)type andSrcImage:(UIImage *)srcImage{
     self.rawImage = srcImage; //setRawImage
     [self switchFilter:type]; //切换滤镜
 }
+ */
 
 - (void)switchToNewFilter {
     
@@ -269,15 +270,6 @@
             
             [self.filter disableFifthFrameCheck];
             [self.filter disableSixthFrameCheck];
-            
-            
-            //
-            //            [self.sourcePicture1 processImage]; //jiangbo
-            //            [self.sourcePicture1 addTarget:self.filter atTextureLocation:1];
-            //            [self.sourcePicture2 processImage];
-            //            [self.sourcePicture2 addTarget:self.filter atTextureLocation:2];
-            //            [self.filter disableFourthFrameCheck];
-            
             
             break;
         }
@@ -503,7 +495,7 @@
             break;
         }
     }
-    
+   
     if (self.stillImageSource != nil) {
         self.gpuImageView_HD.hidden = NO;
         [self.filter addTarget:self.gpuImageView_HD];
@@ -517,10 +509,28 @@
         //    [self.stillImageSource removeAllTargets];
     } else {
         [self.filter addTarget:self.gpuImageView];
-        
     }
+    
 }
-
+/*
+- (UIImage *)getResult
+{
+    UIImage *resultImage;
+    if (self.stillImageSource != nil) {
+        self.gpuImageView_HD.hidden = NO;
+        [self.filter addTarget:self.gpuImageView_HD];
+        [self.filter useNextFrameForImageCapture];
+        [self.stillImageSource processImage];
+        resultImage = [self.filter imageFromCurrentFramebuffer];
+        //    [self.stillImageSource removeAllTargets];
+    } else {
+        [self.filter addTarget:self.gpuImageView];
+    }
+    
+    return resultImage;
+    
+}
+*/
 - (void)forceSwitchToNewFilter:(IFFilterType)type {
     
     self.currentFilterType = type;
@@ -725,7 +735,8 @@
 
 - (void)switchFilter:(IFFilterType)type {
     
-    if ((self.rawImage != nil) && (self.stillImageSource == nil)) {
+//    if ((self.rawImage != nil) && (self.stillImageSource == nil)) {
+    if ((self.stillImageSource == nil)) {
         
         // This is the state when we just switched from live view to album photo view
         [self.rotationFilter removeTarget:self.filter];
@@ -766,6 +777,11 @@
 {
     self.gpuImageView.frame = setRect;
     self.gpuImageView_HD.frame = self.gpuImageView.bounds;
+}
+
+- (void) dealloc
+{
+    NSLog(@"dealloc imagefilter");
 }
 
 //- (id)initWithSessionPreset:(NSString *)sessionPreset cameraPosition:(AVCaptureDevicePosition)cameraPosition highVideoQuality:(BOOL)isHighQuality screenSize:(CGRect)screenSize{
