@@ -181,6 +181,9 @@
 		548A3B831C4E1D500098B2FE /* 萤彩.png in Resources */ = {isa = PBXBuildFile; fileRef = 548A3AF61C4E1D500098B2FE /* 萤彩.png */; };
 		548A3B841C4E1D500098B2FE /* 霏颜-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 548A3AF81C4E1D500098B2FE /* 霏颜-1.png */; };
 		548A3B851C4E1D500098B2FE /* 霏颜.png in Resources */ = {isa = PBXBuildFile; fileRef = 548A3AF91C4E1D500098B2FE /* 霏颜.png */; };
+		54BE56AE1C50B4D900A9645F /* CLRBackgroundImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BE56AD1C50B4D900A9645F /* CLRBackgroundImageFilter.m */; };
+		54BE56B31C50FE2400A9645F /* 2402670401220271942.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54BE56B21C50FE2400A9645F /* 2402670401220271942.jpg */; };
+		54BE56B51C512ABA00A9645F /* bb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 54BE56B41C512ABA00A9645F /* bb.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -444,6 +447,10 @@
 		548A3AF61C4E1D500098B2FE /* 萤彩.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "萤彩.png"; sourceTree = "<group>"; };
 		548A3AF81C4E1D500098B2FE /* 霏颜-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "霏颜-1.png"; sourceTree = "<group>"; };
 		548A3AF91C4E1D500098B2FE /* 霏颜.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "霏颜.png"; sourceTree = "<group>"; };
+		54BE56AC1C50B4D900A9645F /* CLRBackgroundImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRBackgroundImageFilter.h; sourceTree = "<group>"; };
+		54BE56AD1C50B4D900A9645F /* CLRBackgroundImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRBackgroundImageFilter.m; sourceTree = "<group>"; };
+		54BE56B21C50FE2400A9645F /* 2402670401220271942.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2402670401220271942.jpg; sourceTree = "<group>"; };
+		54BE56B41C512ABA00A9645F /* bb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bb.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,6 +635,8 @@
 				548A3A401C4DE37F0098B2FE /* IFWaldenFilter.m */,
 				548A3A411C4DE37F0098B2FE /* IFXproIIFilter.h */,
 				548A3A421C4DE37F0098B2FE /* IFXproIIFilter.m */,
+				54BE56AC1C50B4D900A9645F /* CLRBackgroundImageFilter.h */,
+				54BE56AD1C50B4D900A9645F /* CLRBackgroundImageFilter.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -763,6 +772,8 @@
 		548A3AD41C4E1D500098B2FE /* Resources_for_lookupFilter */ = {
 			isa = PBXGroup;
 			children = (
+				54BE56B21C50FE2400A9645F /* 2402670401220271942.jpg */,
+				54BE56B41C512ABA00A9645F /* bb.jpg */,
 				548A3AD51C4E1D500098B2FE /* 冷艳50% */,
 				548A3AD81C4E1D500098B2FE /* 唯美50% */,
 				548A3ADC1C4E1D500098B2FE /* 复古50% */,
@@ -1023,6 +1034,7 @@
 				548A3B3B1C4E1D500098B2FE /* glCameraTray@2x.png in Resources */,
 				548A3B471C4E1D500098B2FE /* brannanProcess.png in Resources */,
 				548A3B531C4E1D500098B2FE /* hudsonMap.png in Resources */,
+				54BE56B51C512ABA00A9645F /* bb.jpg in Resources */,
 				548A3B791C4E1D500098B2FE /* 清晰.png in Resources */,
 				548A3B0D1C4E1D500098B2FE /* DSFilterTileNashville@2x.png in Resources */,
 				548A3B641C4E1D500098B2FE /* toasterMetal.png in Resources */,
@@ -1091,6 +1103,7 @@
 				548A3B711C4E1D500098B2FE /* 复古-1.png in Resources */,
 				5459C6081C474FE2005136FF /* Main.storyboard in Resources */,
 				548A3B7F1C4E1D500098B2FE /* 红润－1.png in Resources */,
+				54BE56B31C50FE2400A9645F /* 2402670401220271942.jpg in Resources */,
 				548A3B291C4E1D500098B2FE /* glCameraCaptureButtonPressed@2x.png in Resources */,
 				548A3B211C4E1D500098B2FE /* glCameraAcceptDisabled@2x.png in Resources */,
 				548A3B051C4E1D500098B2FE /* DSFilterTileHudson@2x.png in Resources */,
@@ -1184,6 +1197,7 @@
 				548A3A501C4DE37F0098B2FE /* IFNashvilleFilter.m in Sources */,
 				548A3A4D1C4DE37F0098B2FE /* IFInkwellFilter.m in Sources */,
 				548A3A531C4DE37F0098B2FE /* IFSierraFilter.m in Sources */,
+				54BE56AE1C50B4D900A9645F /* CLRBackgroundImageFilter.m in Sources */,
 				548A3A571C4DE37F0098B2FE /* IFWaldenFilter.m in Sources */,
 				548A3A591C4DE37F0098B2FE /* TableViewImageFilter.m in Sources */,
 				548A3A4A1C4DE37F0098B2FE /* IFHefeFilter.m in Sources */,
@@ -1352,7 +1366,7 @@
 					/Users/vk/workspace/GPUImage/framework/Source/iOS,
 				);
 				INFOPLIST_FILE = CLRLookupFilter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRLookupFilter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1368,7 +1382,7 @@
 					/Users/vk/workspace/GPUImage/framework/Source/iOS,
 				);
 				INFOPLIST_FILE = CLRLookupFilter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = clover.CLRLookupFilter;
 				PRODUCT_NAME = "$(TARGET_NAME)";

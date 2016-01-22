@@ -58,8 +58,8 @@
 @property (nonatomic, strong) GPUImagePicture *internalSourcePicture5;
 
 
-
-@property (nonatomic, strong) GPUImagePicture *stillImageSource;
+//make public
+//@property (nonatomic, strong) GPUImagePicture *stillImageSource;
 
 @property (nonatomic, unsafe_unretained) IFFilterType currentFilterType;
 
@@ -501,7 +501,8 @@
         [self.filter addTarget:self.gpuImageView_HD];
         [self.filter useNextFrameForImageCapture];
         [self.stillImageSource processImage];
-        UIImage *delegateImage = [self.filter imageFromCurrentFramebuffer];
+        UIImage *delegateImage = [self.filter imageFromCurrentFramebufferWithOrientation:self.imgOrientation];
+        [self removeFrameBuffer];
         if(self.chdelegate && [self.chdelegate respondsToSelector:@selector(getFilterImage:)])
         {
             [self.chdelegate getFilterImage:delegateImage];
@@ -512,6 +513,17 @@
     }
     
 }
+
+- (void)removeFrameBuffer
+{
+    [self.internalSourcePicture1 removeOutputFramebuffer];
+    [self.internalSourcePicture2 removeOutputFramebuffer];
+    [self.internalSourcePicture3 removeOutputFramebuffer];
+    [self.internalSourcePicture4 removeOutputFramebuffer];
+    [self.internalSourcePicture5 removeOutputFramebuffer];
+
+}
+
 /*
 - (UIImage *)getResult
 {
@@ -698,13 +710,6 @@
                 self.internalFilter = [[IFLordKelvinFilter alloc] init];
                 self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"kelvinMap" ofType:@"png"]]];
                 
-                break;
-            }
-                
-            case CLR_LOOKUP_BAIXI_FILTER: {
-                isLookup = YES;
-                NSLog(@"CLR_LOOKUP_BAIXI_FILTER");
-                self.clrLookupFilter = [[CLRGPUImageLookUpFilter alloc] initWithLookUpImg:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"白皙" ofType:@"png"]]];
                 break;
             }
                 

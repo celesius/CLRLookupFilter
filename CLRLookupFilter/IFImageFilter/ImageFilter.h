@@ -25,8 +25,8 @@ FOUNDATION_EXPORT const unsigned char ImageFilterVersionString[];
 @property (strong, readonly) GPUImageView *gpuImageView;
 @property(nonatomic,assign) id<ImageFilterDelegate> chdelegate;
 
-@property (nonatomic, weak) GPUImagePicture *getGPUImagePicture;
-@property (nonatomic) UIImageOrientation *imgOrientation;
+@property (nonatomic, weak) GPUImagePicture *stillImageSource;
+@property (nonatomic) UIImageOrientation imgOrientation;
 
 -(id)initWithImageSize:(CGRect) imageRect highVideoQuality:(BOOL)isHighQuality;
 

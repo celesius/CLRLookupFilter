@@ -13,8 +13,11 @@
 @interface CLRImageFilter : NSObject
 
 @property (nonatomic, weak) UIImage *srcImage;
+@property (nonatomic) UIImage *imageNoLight;
 
 @property (nonatomic, copy) void (^clrFilterBlock)(UIImage *outImg);
+@property (nonatomic) NSString *filterName;
+//@property (nonatomic, copy) void (^clrFilterBlockNoLight)(UIImage *outImg);
 
 - (id)initWithImgViewRect:(CGRect)imgViewRect;
 

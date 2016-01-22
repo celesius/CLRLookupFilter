@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLRLookupFilter/IFImageFilter/ImageFilter.m"
-            timestampString = "474894990.372049"
+            timestampString = "475065950.070924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "730"
-            endingLineNumber = "730"
+            startingLineNumber = "735"
+            endingLineNumber = "735"
             landmarkName = "-resetRawImage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLRLookupFilter/IFImageFilter/ImageFilter.m"
-            timestampString = "474895304.055815"
+            timestampString = "475065950.070924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "746"
-            endingLineNumber = "746"
+            startingLineNumber = "751"
+            endingLineNumber = "751"
             landmarkName = "-switchFilter:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLRLookupFilter/CLRGPUImageVC.m"
-            timestampString = "474969642.062792"
+            timestampString = "475122933.375827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "-testCode"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLRLookupFilter/CLRGPUImageVC.m"
-            timestampString = "474973662.627941"
+            timestampString = "475122933.375827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
             <Locations>
@@ -138,27 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLRLookupFilter/CLRGPUImageLookUpFilter.m"
-            timestampString = "474977656.964084"
+            timestampString = "475121782.874215"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-setFilterImg:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CLRLookupFilter/CLRGPUImageLookUpFilter.m"
-            timestampString = "474977673.713158"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-setFilterImg:"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,12 +154,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CLRLookupFilter/CLRGPUImageVC.m"
-            timestampString = "474978236.192598"
+            timestampString = "475061271.888499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CLRLookupFilter/CLRGPUImageVC.m"
+            timestampString = "475122933.375827"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "-touchesBegan:withEvent:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CLRLookupFilter/CLRGPUImageVC.m"
+            timestampString = "475122933.375827"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

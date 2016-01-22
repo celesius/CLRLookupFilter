@@ -27,6 +27,7 @@
     CLRImageFilter *filter;
     UIImagePickerController *ipc;
     //GPUImagePicture *mPic;
+    IFFilterType _filterTypeBuffer;
 }
 
 @property (nonatomic, strong) UIImageView *dispView;
@@ -38,6 +39,8 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 
 @property (nonatomic) UITableView *filterSelector;
+@property (nonatomic) UIImage *imageBuffer;
+@property (nonatomic) UIImage *imageNoLightBuffer;
 
 @end
 
@@ -97,6 +100,8 @@
     //[self.view addSubview:selectLookupButton];
     
     [self initFilterSelectorView];
+    
+    _filterTypeBuffer = IF_NORMAL_FILTER;
     
 }
 
@@ -237,8 +242,20 @@
 {
     UITouch *aTouch = [touches anyObject];
     CGPoint touchPoint = [aTouch locationInView:self.dispView];
-    if(CGRectContainsPoint(self.dispView.bounds, touchPoint)) {
-        self.dispView.image = self.getImage;
+    if(CGRectContainsPoint(self.dispView.bounds, touchPoint) && _filterTypeBuffer > IF_LORDKELVIN_FILTER) {
+        //self.dispView.image = self.getImage;
+        if(self.imageNoLightBuffer)
+        {
+            self.dispView.image = self.imageNoLightBuffer;
+        } else {
+            self.dispView.image = filter.imageNoLight;
+            self.imageNoLightBuffer = filter.imageNoLight;
+            //CLRGPUImageVC *__weak weakSelf = self;
+            //filter.clrFilterBlockNoLight = ^(UIImage *image){
+            //    weakSelf.dispView.image = image;
+            //    weakSelf.imageNoLightBuffer = image;
+            //};
+        }
     }
 
 }
@@ -248,9 +265,14 @@
     UITouch *aTouch = [touches anyObject];
     CGPoint touchPoint = [aTouch locationInView:self.dispView];
     //if(CGRectContainsPoint(self.dispView.bounds, touchPoint)) {
-    if(self.processedImg){
-        self.dispView.image = self.processedImg;
+    
+    if(_filterTypeBuffer > IF_LORDKELVIN_FILTER){
+        self.dispView.image = self.imageBuffer;
     }
+    
+    //if(self.processedImg){
+    //    self.dispView.image = self.processedImg;
+    //}
     //}
 }
 
@@ -265,7 +287,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return (int)IF_FILTER_TOTAL_NUMBER;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -274,9 +296,14 @@
     filter.clrFilterBlock = ^(UIImage *image) {
         NSLog(@"%@",image);
         weakSelf.dispView.image = image;
+        weakSelf.imageBuffer = image;
     };
     [filter switchFilter:(IFFilterType)[indexPath row]];
-    
+    if(_filterTypeBuffer != (IFFilterType)[indexPath row]){
+        _filterTypeBuffer = (IFFilterType)[indexPath row];
+        self.imageNoLightBuffer = nil;
+    }
+    self.nameLabel.text = filter.filterName;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

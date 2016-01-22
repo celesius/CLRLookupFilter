@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) UIImage *filterImg;
 @property (nonatomic, weak) GPUImagePicture *getGPUImagePicture;
+@property (nonatomic, weak) GPUImagePicture *lookupImageSource;
 @property (nonatomic) UIImageOrientation imgOrientation;
 /**
  *  用lookup Image图片的名字初始化
@@ -21,7 +22,7 @@
  *
  *  @return self
  */
-- (id)initWithLookUpName:(NSString *)name;
+//- (id)initWithLookUpName:(NSString *)name;
 /**
  *  用传入的lookup Image 图片初始化
  *
@@ -29,7 +30,7 @@
  *
  *  @return self
  */
-- (id)initWithLookUpImg:(UIImage *)lookupImg;
+//- (id)initWithLookUpImg:(UIImage *)lookupImg;
 
 /**
  *  切换lookup Image
@@ -38,5 +39,6 @@
  */
 - (void)switchLookupImg:(UIImage *)lookupImg;
 - (UIImage *)getFilterResultBySetValue:(float) value;
+- (UIImage *)getFilterResultWithoutLightBySetValue:(float) value;
 
 @end
