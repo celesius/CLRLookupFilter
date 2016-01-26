@@ -29,7 +29,8 @@
 #import "IFNashvilleFilter.h"
 #import "IF1977Filter.h"
 #import "IFLordKelvinFilter.h"
-#import "CLRGPUImageLookUpFilter.h"
+#import "CLRIFGPUImageLookupFilter.h"
+//#import "CLRGPUImageLookUpFilter.h"
 
 @interface ImageFilter()
 {
@@ -40,7 +41,7 @@
 @property (nonatomic, strong) GPUImageFilter *rotationFilter;
 @property (nonatomic, strong) IFImageFilter *filter;
 @property (nonatomic, strong) IFImageFilter *internalFilter;
-@property (nonatomic) CLRGPUImageLookUpFilter *clrLookupFilter;
+//@property (nonatomic) CLRGPUImageLookUpFilter *clrLookupFilter;
 
 
 @property (strong, readwrite) GPUImageView *gpuImageView;
@@ -481,6 +482,15 @@
             
             break;
         }
+        case CLR_LOOKUP_BAIXI_FILTER: {
+            self.sourcePicture1 = self.internalSourcePicture1;// self.lookupFilterPic;
+            [self.sourcePicture1 processImage];
+            [self.sourcePicture1 addTarget:self.filter];
+            [self.filter disableThirdFrameCheck];
+            [self.filter disableFourthFrameCheck];
+            [self.filter disableFifthFrameCheck];
+            [self.filter disableSixthFrameCheck];
+        }
             
         case IF_NORMAL_FILTER: {
             [self.filter disableSecondFrameCheck];
@@ -492,6 +502,13 @@
         }
             
         default: {
+            self.sourcePicture1 = self.internalSourcePicture1;// self.lookupFilterPic;
+            [self.sourcePicture1 processImage];
+            [self.sourcePicture1 addTarget:self.filter];
+            [self.filter disableThirdFrameCheck];
+            [self.filter disableFourthFrameCheck];
+            [self.filter disableFifthFrameCheck];
+            [self.filter disableSixthFrameCheck];
             break;
         }
     }
@@ -548,6 +565,7 @@
     self.currentFilterType = type;
     
     dispatch_async(self.prepareFilterQueue, ^{
+    NSString *lookupFilterName;
         switch (type) {
             case IF_AMARO_FILTER: {
                 self.internalFilter = [[IFAmaroFilter alloc] init];
@@ -713,6 +731,94 @@
                 break;
             }
                 
+            case CLR_LOOKUP_BAIXI_FILTER:
+            {
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc]init];
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"白皙" ofType:@"png"]]];
+                break;
+            }
+            
+             case CLR_LOOKUP_LENGYAN_FILTER:
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.5;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"冷艳" ofType:@"png"]]];
+                //self.filterName = @"冷艳";
+                //rang = 0.5;
+                break;
+            case CLR_LOOKUP_WEIMEI_FILTER:
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.5;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"唯美" ofType:@"png"]]];
+                //self.filterName = @"唯美";
+                //rang = 0.5;
+                break;
+            case CLR_LOOKUP_FUGU_FILTER:
+            {
+                lookupFilterName = @"复古";
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.5;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:lookupFilterName ofType:@"png"]]];
+                //self.filterName = @"复古";
+                //rang = 0.5;
+                break;
+            }
+            case CLR_LOOKUP_MENGHUAN_FILTER:
+                lookupFilterName  = @"梦幻";
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.5;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:lookupFilterName ofType:@"png"]]];
+                
+          //      self.filterName = @"梦幻";
+          //      rang = 0.5;
+                break;
+            case CLR_LOOKUP_LUOKEKE_FILTER:
+                lookupFilterName  = @"洛可可";
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.7;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:lookupFilterName ofType:@"png"]]];
+                //self.filterName = @"洛可可";
+                //rang = 0.7;
+                break;
+            case CLR_LOOKUP_QINGXI_FILTER:
+                lookupFilterName  = @"清晰";
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.5;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:lookupFilterName ofType:@"png"]]];
+                //self.filterName = @"清晰";
+                //rang = 0.5;
+                break;
+            case CLR_LOOKUP_HONGRUN_FILTER:
+                lookupFilterName  = @"红润";
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.5;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:lookupFilterName ofType:@"png"]]];
+                //self.filterName = @"红润";
+                //rang = 0.5;
+                break;
+            case CLR_LOOKUP_HUAYAN_FILTER:
+                lookupFilterName  = @"花颜";
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.5;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:lookupFilterName ofType:@"png"]]];
+                //self.filterName = @"花颜";
+                //rang = 0.5;
+                break;
+            case CLR_LOOKUP_YINGCAI_FILTER:
+                lookupFilterName  = @"萤彩";
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.7;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:lookupFilterName ofType:@"png"]]];
+                //self.filterName = @"萤彩";
+                //rang = 0.7;
+                break;
+            case CLR_LOOKUP_FEIYAN_FILTER:
+                lookupFilterName  = @"霏颜";
+                self.internalFilter = [[CLRIFGPUImageLookupFilter alloc] init];
+                self.internalFilter.intensity = 0.5;
+                self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:lookupFilterName ofType:@"png"]]];
+                //self.filterName = @"霏颜";
+                //rang = 0.5;
+                break;
             default:
                 break;
         }
@@ -720,6 +826,11 @@
         [self performSelectorOnMainThread:@selector(switchToNewFilter) withObject:nil waitUntilDone:NO];
         
     });
+}
+
+
+- (void)setFilterIntensity:(CGFloat)intensity{
+    NSLog(@"super setFilterIntensity");
 }
 
 -(void) resetRawImage:(UIImage *)srcImage

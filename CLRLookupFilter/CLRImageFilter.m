@@ -13,7 +13,7 @@
 @interface CLRImageFilter () <ImageFilterDelegate>
 
 @property (nonatomic) ImageFilter *iFImageFilter;
-@property (nonatomic) CLRGPUImageLookUpFilter *lookupImageFilter;
+//@property (nonatomic) CLRGPUImageLookUpFilter *lookupImageFilter;
 @property (nonatomic) GPUImagePicture *gpuImagePicture;
 @property (nonatomic) UIImageOrientation imageOrientation;
 @property (nonatomic) GPUImagePicture *lookupPic;
@@ -27,7 +27,7 @@
 {
     if(self = [super init]) {
         self.iFImageFilter = [[ImageFilter alloc]initWithImageSize:imgViewRect highVideoQuality:YES];
-        self.lookupImageFilter = [[CLRGPUImageLookUpFilter alloc]init];
+        //self.lookupImageFilter = [[CLRGPUImageLookUpFilter alloc]init];
         self.iFImageFilter.chdelegate = self;
         self.filterName = @"";
     }
@@ -41,6 +41,8 @@
     self.gpuImagePicture = [[GPUImagePicture alloc]initWithImage:self.srcImage];
     NSLog(@"gg%@",NSStringFromCGSize([self.gpuImagePicture outputImageSize]));
     self.imageOrientation = self.srcImage.imageOrientation;
+    self.iFImageFilter.stillImageSource = self.gpuImagePicture;
+    self.iFImageFilter.imgOrientation = self.imageOrientation;
 }
 
 - (void)getFilterImage:(UIImage *)filterImage
@@ -53,11 +55,8 @@
 - (void)switchFilter:(IFFilterType)type
 {
     if(type < CLR_LOOKUP_BAIXI_FILTER){
-        self.iFImageFilter.stillImageSource = self.gpuImagePicture;
-        self.iFImageFilter.imgOrientation = self.imageOrientation;
-        [self.iFImageFilter switchFilter:type];
         self.filterName = @"";
-    }else{
+     }else{
         float rang = 0.0;
         switch (type) {
             case CLR_LOOKUP_BAIXI_FILTER:
@@ -109,7 +108,10 @@
         }
         
         //self.lookupImageFilter = [[CLRGPUImageLookUpFilter alloc]initWithLookUpImg:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.filterName ofType:@"png"]]];
-        self.lookupPic = [[GPUImagePicture alloc]initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.filterName ofType:@"png"]]];
+         self.lookupPic =[[GPUImagePicture alloc]initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:self.filterName ofType:@"png"]]];
+         self.iFImageFilter.lookupFilterPic = self.lookupPic;
+        /*
+        self.lookupPic = ;
         self.lookupImageFilter.lookupImageSource = self.lookupPic;
         self.lookupImageFilter.getGPUImagePicture = self.gpuImagePicture;
         self.lookupImageFilter.imgOrientation = self.imageOrientation;
@@ -118,8 +120,10 @@
             self.clrFilterBlock( [self.lookupImageFilter getFilterResultBySetValue:rang] );
             self.imageNoLight = [self.lookupImageFilter getFilterResultWithoutLightBySetValue:rang];
         }
+         */
         
     }
+    [self.iFImageFilter switchFilter:type];
 }
 
 - (void)dealloc

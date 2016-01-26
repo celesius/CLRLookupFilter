@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542C4F691C52156F00356873 /* CLRGPUImageCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F681C52156F00356873 /* CLRGPUImageCameraVC.m */; };
+		542C4F6C1C5233AC00356873 /* CLRSwitchFilterTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542C4F6B1C5233AC00356873 /* CLRSwitchFilterTestView.m */; };
 		5459C5FF1C474FE2005136FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459C5FE1C474FE2005136FF /* main.m */; };
 		5459C6021C474FE2005136FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459C6011C474FE2005136FF /* AppDelegate.m */; };
 		5459C6051C474FE2005136FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459C6041C474FE2005136FF /* ViewController.m */; };
@@ -20,6 +22,7 @@
 		5459C6431C475502005136FF /* CLRiOSPlug.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459C6421C475502005136FF /* CLRiOSPlug.m */; };
 		5459C64C1C477834005136FF /* CLRGPUImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459C64B1C477834005136FF /* CLRGPUImageVC.m */; };
 		5459C6501C478446005136FF /* CLRGPUImageLookUpFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5459C64F1C478446005136FF /* CLRGPUImageLookUpFilter.m */; };
+		546F2FEC1C55D53100CB0468 /* CLRIFGPUImageLookupFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 546F2FEB1C55D53100CB0468 /* CLRIFGPUImageLookupFilter.m */; };
 		548A3A451C4DE37F0098B2FE /* ImageFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 548A3A1A1C4DE37F0098B2FE /* ImageFilter.m */; };
 		548A3A461C4DE37F0098B2FE /* IF1977Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 548A3A1E1C4DE37F0098B2FE /* IF1977Filter.m */; };
 		548A3A471C4DE37F0098B2FE /* IFAmaroFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 548A3A201C4DE37F0098B2FE /* IFAmaroFilter.m */; };
@@ -239,6 +242,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		542C4F671C52156F00356873 /* CLRGPUImageCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRGPUImageCameraVC.h; sourceTree = "<group>"; };
+		542C4F681C52156F00356873 /* CLRGPUImageCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRGPUImageCameraVC.m; sourceTree = "<group>"; };
+		542C4F6A1C5233AC00356873 /* CLRSwitchFilterTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRSwitchFilterTestView.h; sourceTree = "<group>"; };
+		542C4F6B1C5233AC00356873 /* CLRSwitchFilterTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRSwitchFilterTestView.m; sourceTree = "<group>"; };
 		5459C5FA1C474FE2005136FF /* CLRLookupFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLRLookupFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5459C5FE1C474FE2005136FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5459C6001C474FE2005136FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -262,6 +269,8 @@
 		5459C64B1C477834005136FF /* CLRGPUImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRGPUImageVC.m; sourceTree = "<group>"; };
 		5459C64E1C478446005136FF /* CLRGPUImageLookUpFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRGPUImageLookUpFilter.h; sourceTree = "<group>"; };
 		5459C64F1C478446005136FF /* CLRGPUImageLookUpFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRGPUImageLookUpFilter.m; sourceTree = "<group>"; };
+		546F2FEA1C55D53100CB0468 /* CLRIFGPUImageLookupFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLRIFGPUImageLookupFilter.h; sourceTree = "<group>"; };
+		546F2FEB1C55D53100CB0468 /* CLRIFGPUImageLookupFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLRIFGPUImageLookupFilter.m; sourceTree = "<group>"; };
 		548A3A191C4DE37F0098B2FE /* ImageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFilter.h; sourceTree = "<group>"; };
 		548A3A1A1C4DE37F0098B2FE /* ImageFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFilter.m; sourceTree = "<group>"; };
 		548A3A1B1C4DE37F0098B2FE /* InstaFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstaFilters.h; sourceTree = "<group>"; };
@@ -510,10 +519,16 @@
 				5459C6011C474FE2005136FF /* AppDelegate.m */,
 				5459C6031C474FE2005136FF /* ViewController.h */,
 				5459C6041C474FE2005136FF /* ViewController.m */,
+				542C4F671C52156F00356873 /* CLRGPUImageCameraVC.h */,
+				542C4F681C52156F00356873 /* CLRGPUImageCameraVC.m */,
+				542C4F6A1C5233AC00356873 /* CLRSwitchFilterTestView.h */,
+				542C4F6B1C5233AC00356873 /* CLRSwitchFilterTestView.m */,
 				5459C64A1C477834005136FF /* CLRGPUImageVC.h */,
 				5459C64B1C477834005136FF /* CLRGPUImageVC.m */,
 				5459C64E1C478446005136FF /* CLRGPUImageLookUpFilter.h */,
 				5459C64F1C478446005136FF /* CLRGPUImageLookUpFilter.m */,
+				546F2FEA1C55D53100CB0468 /* CLRIFGPUImageLookupFilter.h */,
+				546F2FEB1C55D53100CB0468 /* CLRIFGPUImageLookupFilter.m */,
 				548A3A5A1C4DE7D00098B2FE /* CLRImageFilter.h */,
 				548A3A5B1C4DE7D00098B2FE /* CLRImageFilter.m */,
 				5459C6061C474FE2005136FF /* Main.storyboard */,
@@ -1196,6 +1211,7 @@
 				548A3A511C4DE37F0098B2FE /* IFNormalFilter.m in Sources */,
 				548A3A501C4DE37F0098B2FE /* IFNashvilleFilter.m in Sources */,
 				548A3A4D1C4DE37F0098B2FE /* IFInkwellFilter.m in Sources */,
+				542C4F6C1C5233AC00356873 /* CLRSwitchFilterTestView.m in Sources */,
 				548A3A531C4DE37F0098B2FE /* IFSierraFilter.m in Sources */,
 				54BE56AE1C50B4D900A9645F /* CLRBackgroundImageFilter.m in Sources */,
 				548A3A571C4DE37F0098B2FE /* IFWaldenFilter.m in Sources */,
@@ -1212,8 +1228,10 @@
 				5459C6431C475502005136FF /* CLRiOSPlug.m in Sources */,
 				548A3A461C4DE37F0098B2FE /* IF1977Filter.m in Sources */,
 				548A3A491C4DE37F0098B2FE /* IFEarlybirdFilter.m in Sources */,
+				542C4F691C52156F00356873 /* CLRGPUImageCameraVC.m in Sources */,
 				548A3A481C4DE37F0098B2FE /* IFBrannanFilter.m in Sources */,
 				548A3A471C4DE37F0098B2FE /* IFAmaroFilter.m in Sources */,
+				546F2FEC1C55D53100CB0468 /* CLRIFGPUImageLookupFilter.m in Sources */,
 				548A3A4B1C4DE37F0098B2FE /* IFHudsonFilter.m in Sources */,
 				548A3A541C4DE37F0098B2FE /* IFSutroFilter.m in Sources */,
 				548A3A551C4DE37F0098B2FE /* IFToasterFilter.m in Sources */,

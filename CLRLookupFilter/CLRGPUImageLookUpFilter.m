@@ -114,14 +114,10 @@
     [self.bgS2 addTarget:self.clrBackgroundImageFilter atTextureLocation:2];
     [self.bgS1 processImage];
     [self.bgS2 processImage];
-    NSLog(@"%@",NSStringFromCGSize([_getGPUImagePicture outputImageSize]));
-    NSLog(@"%@",NSStringFromCGSize([self.bgS1 outputImageSize]));
-    NSLog(@"%@",NSStringFromCGSize([self.bgS2 outputImageSize]));
     //[self.clrBackgroundImageFilter useNextFrameForImageCapture];
     //UIImage *image =   [_lookFilter imageFromCurrentFramebuffer];
     UIImage *image = [self.clrBackgroundImageFilter imageFromCurrentFramebufferWithOrientation:_imgOrientation];
     //UIImage *image = [self.clrBackgroundImageFilter imageFromCurrentFramebufferWithOrientation:_imgOrientation];
-    NSLog(@"%ld",(long)image.imageOrientation);
     [_lookFilter removeAllTargets];
     [self.bgS1 removeAllTargets];
     [self.bgS2 removeAllTargets];

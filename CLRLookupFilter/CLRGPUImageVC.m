@@ -242,6 +242,8 @@
 {
     UITouch *aTouch = [touches anyObject];
     CGPoint touchPoint = [aTouch locationInView:self.dispView];
+    
+    /*
     if(CGRectContainsPoint(self.dispView.bounds, touchPoint) && _filterTypeBuffer > IF_LORDKELVIN_FILTER) {
         //self.dispView.image = self.getImage;
         if(self.imageNoLightBuffer)
@@ -257,6 +259,7 @@
             //};
         }
     }
+     */
 
 }
 
@@ -265,10 +268,11 @@
     UITouch *aTouch = [touches anyObject];
     CGPoint touchPoint = [aTouch locationInView:self.dispView];
     //if(CGRectContainsPoint(self.dispView.bounds, touchPoint)) {
-    
+    /*
     if(_filterTypeBuffer > IF_LORDKELVIN_FILTER){
         self.dispView.image = self.imageBuffer;
     }
+     */
     
     //if(self.processedImg){
     //    self.dispView.image = self.processedImg;
@@ -299,10 +303,12 @@
         weakSelf.imageBuffer = image;
     };
     [filter switchFilter:(IFFilterType)[indexPath row]];
+    /*
     if(_filterTypeBuffer != (IFFilterType)[indexPath row]){
         _filterTypeBuffer = (IFFilterType)[indexPath row];
         self.imageNoLightBuffer = nil;
     }
+     */
     self.nameLabel.text = filter.filterName;
 }
 

@@ -26,7 +26,12 @@ FOUNDATION_EXPORT const unsigned char ImageFilterVersionString[];
 @property(nonatomic,assign) id<ImageFilterDelegate> chdelegate;
 
 @property (nonatomic, weak) GPUImagePicture *stillImageSource;
+@property (nonatomic, weak) GPUImagePicture *lookupFilterPic;
 @property (nonatomic) UIImageOrientation imgOrientation;
+/**
+ *  lookup Filter intensity
+ */
+//@property(readwrite, nonatomic) CGFloat intensity;
 
 -(id)initWithImageSize:(CGRect) imageRect highVideoQuality:(BOOL)isHighQuality;
 
@@ -39,6 +44,7 @@ FOUNDATION_EXPORT const unsigned char ImageFilterVersionString[];
 
 - (UIImage *)getResult;
 
+- (void)setFilterIntensity:(CGFloat)intensity;
 
 //-(void) setI;
 

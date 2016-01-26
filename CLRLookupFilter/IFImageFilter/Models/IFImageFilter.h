@@ -33,6 +33,7 @@
     BOOL fifthFrameCheckDisabled;
     BOOL sixthFrameCheckDisabled;
 }
+@property(readwrite, nonatomic) CGFloat intensity;
 
 - (void)disableFourthFrameCheck;
 - (void)disableFifthFrameCheck;

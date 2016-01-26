@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CLRiOSPlug.h"
 #import "CLRGPUImageVC.h"
+#import "CLRGPUImageCameraVC.h"
 
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
@@ -31,9 +32,15 @@
     [openGalleryButton setTitle:@"来个照片" forState:UIControlStateNormal];
     [openGalleryButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [openGalleryButton addTarget:self action:@selector(openGalleryButtonFoo:) forControlEvents:UIControlEventTouchUpInside];
-
-    
     [self.view addSubview:openGalleryButton];
+
+    UIButton *openCamera = [UIButton buttonWithType:UIButtonTypeSystem];
+    openCamera.frame = CGRectMake((CGRectGetWidth([CLRiOSPlug screenInfo]) - 100)/2.0 , CGRectGetHeight([CLRiOSPlug screenInfo])/2.0 + 60, 100, 50);
+    openCamera.backgroundColor = [UIColor grayColor];
+    [openCamera setTitle:@"打开相机" forState:UIControlStateNormal];
+    [openCamera setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [openCamera addTarget:self action:@selector(openCameraButtonFoo:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:openCamera];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -53,6 +60,13 @@
         [self presentViewController:ipc animated:YES completion:nil];
     }
 }
+
+- (void)openCameraButtonFoo:(id)sender
+{
+    CLRGPUImageCameraVC *cameraVC = [[CLRGPUImageCameraVC alloc]init];
+    [self.navigationController pushViewController:cameraVC animated:YES];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
